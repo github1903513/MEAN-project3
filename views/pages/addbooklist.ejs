@@ -1,0 +1,82 @@
+<!-- Tiedoston nimi on leffat.ejs -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <%- include('../partials/head') %>
+  </head>
+
+  <body>
+    <div id="wrapper">
+      <!--menu
+      <%- include('../partials/menu') %>-->
+      <h1>Lukudiplomi Book List:</h1>
+      <!--contant-->
+      <div>
+        <form
+          class="pure-form"
+          class="pure-u-1-2"
+          method="post"
+          action="/api/add"
+        >
+          <legend><b>Add the book's infomation</b></legend>
+          <fieldset class="pure-group">
+            Bookname:<br /><input
+              type="text"
+              class="pure-input-1-2"
+              placeholder="Enter bookname"
+              id="bookname"
+              name="bookname"
+              required
+            />
+            Author:<br /><input
+              type="text"
+              class="pure-input-1-2"
+              placeholder="Enter author"
+              id="author"
+              name="author"
+              required
+            />
+            Booktype:<br /><select id="type" name="type" class="pure-input-1-2">
+              <option value="sarjakirjat" selected>sarjakirjat</option>
+              <option value="klassikot">klassikot</option>
+              <option value="lastenromaanit">lastenromaanit</option>
+              <option value="sadut">sadut</option>
+              <option value="runot">runot</option>
+              <option value="muut">muut</option> </select
+            ><br />
+            Picture:<br /><input
+              type="text"
+              class="pure-input-1-2"
+              placeholder="Enter picture address"
+              id="picture"
+              name="picture"
+              required
+            />
+            Content:<br />
+            <textarea
+              class="pure-input-1-2"
+              name="content"
+              id="content"
+              rows="10"
+              cols="30"
+            >
+            Enter book content.
+            </textarea>
+          </fieldset>
+
+          <button
+            type="submit"
+            class="pure-button pure-input-1-2 pure-button-primary"
+          >
+            ADD
+          </button>
+        </form>
+      </div>
+      <br />
+      <br />
+    </div>
+
+    <!--footer
+    <%- include('../partials/footer') %>-->
+  </body>
+</html>

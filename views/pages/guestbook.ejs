@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <%- include('../partials/head') %>
+  </head>
+
+  <body>
+    <div class="pure-menu pure-menu-horizontal pure-menu-scrollable">
+      <ul class="pure-menu-list">
+        <li class="pure-menu-item">
+          <a href="/" class="pure-menu-link">HomePage</a>
+        </li>
+        <li class="pure-menu-item">Guestbook</li>
+        <li class="pure-menu-item">
+          <a href="/newmessage" class="pure-menu-link">newmessage</a>
+        </li>
+        <li class="pure-menu-item">
+          <a href="/ajaxmessage" class="pure-menu-link">ajaxmessage</a>
+        </li>
+      </ul>
+    </div>
+    <br />
+    <br />
+
+    <div>
+      <table class="pure-table pure-table-horizontal" border="0">
+        <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th>Country</th>
+          <th>Date</th>
+          <th>Message</th>
+        </tr>
+        <% users.forEach(function(user){ %>
+        <tr>
+          <td><%= user.id %></td>
+          <td><%= user.username %></td>
+          <td><%= user.country %></td>
+          <td><%= user.date %></td>
+          <td><%= user.message %></td>
+        </tr>
+        <% }) %>
+      </table>
+    </div>
+    <br />
+    <br />
+    <!--footer-->
+    <%- include('../partials/footer') %>
+  </body>
+</html>

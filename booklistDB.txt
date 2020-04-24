@@ -1,0 +1,92 @@
+http://kirjasto.one/lukudiplomi/index.php?dipl=1#
+
+/* schema
+var schema = mongoose.Schema;
+var Lukudiplomilisti = new schema({
+  bookname: {
+    type: String,
+    Required: "Please enter the name of the book",
+  },
+  author: {
+    type: String,
+    Required: "Please enter the author of the book",
+  },
+  type: {
+    type: String,
+    enum: [
+      "Runokirjat",
+      "Helppolukuiset",
+      "Lastenkirjat",
+      "Sadukirjat",
+      "Kuvakirjat",
+      "Tietokirjat",
+      "Muut",
+    ],
+    default: ["Sarjakirjat"],
+  },
+  picture: String,
+  date: {
+    type: Date,
+    default: Date.now,
+  },
+});
+var Booklist = mongoose.model("booklist", Lukudiplomilisti);*/
+
+db.booklist.insertMany( [ liitä JSON data tähän ] )
+{
+"bookname":"Määt ja Muut",
+"author":"Reetta Niemensivu ja Aapo Ravantti",
+"type":"Runokirjat",
+"picture":"http://armas.btj.fi/request.php?id=f55f7189859e3777&pid=9789520401757&qtype=m&ftype=04&error=0",
+"date":"2018-02-26 01:00:00"
+},
+{
+"bookname":"Operaatio Myrskypilvi",
+"author":"Jorn Lier and Hans Jorgen",
+"type":"Helppolukuiset",
+"picture":"http://armas.btj.fi/request.php?id=f55f7189859e3777&pid=9789511310211&qtype=m&ftype=04&error=0",
+"date":"2018-02-26 01:00:00"
+},
+{
+"bookname":"Hyvän ja Pahan Ikuinen Taistelu",
+"author":"Star Wars",
+"type":"Lastenkirjat",
+"picture":"http://armas.btj.fi/request.php?id=f55f7189859e3777&pid=9789510399231&qtype=m&ftype=04&error=0",
+"date":"2018-02-26 01:00:00"
+}
+
+db.booklist.insertOne({
+"bookname":"Operaatio Myrskypilvi",
+"author":"Jorn Lier and Hans Jorgen",
+"type":"Helppolukuiset",
+"picture":"http://armas.btj.fi/request.php?id=f55f7189859e3777&pid=9789511310211&qtype=m&ftype=04&error=0",
+"date":"2018-02-26 01:00:00"
+})
+db.booklist.insertOne({
+"bookname":"Hyvän ja Pahan Ikuinen Taistelu",
+"author":"Star Wars",
+"type":"Lastenkirjat",
+"picture":"http://armas.btj.fi/request.php?id=f55f7189859e3777&pid=9789510399231&qtype=m&ftype=04&error=0",
+"date":"2018-02-26 01:00:00"
+})
+db.booklist.insertOne({
+"bookname":"Pikku Kakkosen Iltasatukirja",
+"author":"WSOY",
+"type":"Satukirjat",
+"picture":"http://armas.btj.fi/request.php?id=f55f7189859e3777&pid=9789510442692&qtype=m&ftype=04&error=0",
+"date":"2018-02-26 01:00:00"
+})
+db.booklist.insertOne({
+"bookname":"Eetu pelaa jääkiekkoa",
+"author":"Katarina Ekstedt",
+"type":"Kovakirjat",
+"picture":"http://armas.btj.fi/request.php?id=f55f7189859e3777&pid=9789512360093&qtype=m&ftype=04&error=0",
+"date":"2018-02-26 01:00:00"
+})
+db.booklist.insertOne({
+"bookname":"Dinosauruskirja",
+"author":"Tom jackson",
+"type":"Tietokirjat",
+"picture":"http://armas.btj.fi/request.php?id=f55f7189859e3777&pid=9789523081598&qtype=m&ftype=04&error=0",
+"date":"2018-02-26 01:00:00"
+})

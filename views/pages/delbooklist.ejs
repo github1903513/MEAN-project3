@@ -1,0 +1,48 @@
+<!-- Tiedoston nimi on leffat.ejs -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <title>Guest Book</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div id="wrapper">
+      <!--menu
+      <%- include('../partials/menu') %>-->
+
+      <!--contant-->
+      <h1>Lukudiplomi Book List</h1>
+      <table border="1">
+        <tr>
+          <th>Delete</th>
+          <th>Bookname</th>
+          <th>Author</th>
+          <th>Type</th>
+          <th>Image</th>
+        </tr>
+        <!-- luodaan silmukka joka käy läpi taulu-muuttujan sisällön -->
+        <% for (var i=0; i < taulu.length; i++){ %>
+    <from method="post" action="/delbook">
+        <tr>
+          <td><input type="checkbox" value="<%= taulu[i]._id %>"></td>
+          <td><%= taulu[i].bookname %></td>
+          <td><%= taulu[i].author %></td>
+          <td><%= taulu[i].type %></td>
+          <td>
+            <img src='<%= taulu[i].picture %>'' height=' 30%'>
+          </td>
+        </tr>
+        <% } %>
+      </table>
+    <button type="submit" class="pure-button pure-input-1-2 pure-button-primary">
+        Submit
+    </button>
+    </form>
+    </div>
+
+    <!--footer
+    <%- include('../partials/footer') %>-->
+  </body>
+</html>
