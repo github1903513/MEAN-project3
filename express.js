@@ -25,23 +25,6 @@ var uri =
 //db connect
 mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 
-/* db connect
-mongoose.connect(
-  uri,
-  { useNewUrlParser: true, useUnifiedTopology: true },
-  function (err) {
-    if (err) {
-      console.log("connect db failure");
-    } else {
-      // Initialize the app.
-      var server = app.listen(process.env.PORT || 8080, function () {
-        var port = server.address().port;
-        console.log("App now running on port", port);
-      });
-    }
-  }
-);*/
-
 //defined a booklist
 const Booklist = mongoose.model(
   "Booklist",
@@ -94,7 +77,8 @@ app.get("/api/add", function (req, res) {
     Booklist.create(newbook, function (err, result) {
       if (err) console.log(err);
       console.log("Tallennettu: " + result);
-      res.send("Add the book to the lukudiplomilist" + result);
+      //res.send("Add the book to the lukudiplomilist" + result);
+      res.render("pages/allbooklist");
     });
   });
   //res.render("pages/allbooklist");
