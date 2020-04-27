@@ -5,7 +5,7 @@
   "main": "express.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node express.js"
+    "start": "nodemon express.js"
   },
   "keywords": [
     "Node",
