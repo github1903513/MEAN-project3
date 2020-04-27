@@ -77,8 +77,9 @@ app.get("/api/add", function (req, res) {
     Booklist.create(newbook, function (err, result) {
       if (err) console.log(err);
       console.log("Tallennettu: " + result);
+      res.json(result, 200);
       //res.send("Add the book to the lukudiplomilist" + result);
-      res.render("pages/index");
+      //res.render("pages/index");
     });
   });
   //res.render("/api/getall");
