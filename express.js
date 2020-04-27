@@ -7,6 +7,7 @@ var router = express.Router();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.static(__dirname + "/public"));
+const PORT = process.env.PORT || 5000;
 
 // set the view engine to ejs
 app.set("view engine", "ejs");
@@ -20,7 +21,10 @@ app.get("/", function (req, res) {
 //var uri = "mongodb://127.0.0.1:27017/booklist";
 const password = "laurea_ping";
 var uri = "mongodb + srv://laurea_ping:<"+password+">@cluster0-kggoo.mongodb.net/booklist?retryWrites=true&w=majority
-// db connect
+//db connect
+mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+
+/* db connect
 mongoose.connect(
   uri,
   { useNewUrlParser: true, useUnifiedTopology: true },
@@ -35,7 +39,7 @@ mongoose.connect(
       });
     }
   }
-);
+);*/
 
 //defined a booklist
 const Booklist = mongoose.model(
@@ -145,3 +149,6 @@ app.delete("/api/delete/:id", function (req, res) {
   });
   //res.send("Delete the  document with id" + req.params.id);
 });
+
+//app.listen(8081);
+app.listen(PORT);
