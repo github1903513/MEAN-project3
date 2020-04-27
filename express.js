@@ -81,7 +81,7 @@ app.get("/api/add", function (req, res) {
       //res.render("pages/allbooklist");
     });
   });
-  res.render("pages/allbooklist");
+  res.render("/api/getall");
 });
 
 // Update the docment with id
