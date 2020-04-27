@@ -20,7 +20,8 @@ app.get("/", function (req, res) {
 // mongoose defined
 //var uri = "mongodb://127.0.0.1:27017/booklist";
 const password = "laurea_ping";
-var uri = "mongodb + srv://laurea_ping:<"+password+">@cluster0-kggoo.mongodb.net/booklist?retryWrites=true&w=majority
+var uri =
+  "mongodb+srv://laurea_ping:laurea_ping@cluster0-kggoo.mongodb.net/booklist";
 //db connect
 mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 
