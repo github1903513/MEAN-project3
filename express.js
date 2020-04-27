@@ -78,10 +78,10 @@ app.get("/api/add", function (req, res) {
       if (err) console.log(err);
       console.log("Tallennettu: " + result);
       //res.send("Add the book to the lukudiplomilist" + result);
-      //res.render("pages/allbooklist");
+      res.render("pages/index");
     });
   });
-  res.render("/api/getall");
+  //res.render("/api/getall");
 });
 
 // Update the docment with id
