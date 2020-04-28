@@ -7,6 +7,8 @@ var router = express.Router();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.static(__dirname + "/public"));
+const methodOverride = require("method-override");
+app.use(methodOverride("_method"));
 const PORT = process.env.PORT || 5000;
 
 // set the view engine to ejs
