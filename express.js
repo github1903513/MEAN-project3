@@ -75,14 +75,14 @@ app.get("/api/add", function (req, res) {
     const newbook = req.body;
     console.log(newbook);
     Booklist.create(newbook, function (err, result) {
-      if (err) console.log(err);
-      console.log("Tallennettu: " + result);
-      res.json(result, 200);
-      //res.send("Add the book to the lukudiplomilist" + result);
-      //res.render("pages/index");
+      if (err) {
+        console.log(err);
+      } else {
+        console.log("Tallennettu: " + result);
+        res.redirect("/api/getall");
+      }
     });
   });
-  //res.render("/api/getall");
 });
 
 // Update the docment with id
@@ -109,7 +109,8 @@ app.put("/api/update/:id", function (req, res) {
         ) {
           if (err) console.log(err);
           console.log("Update the book: " + result);
-          res.send("Update the book to the lukudiplomilist" + result);
+          //res.send("Update the book to the lukudiplomilist" + result);
+          res.redirect("/api/getall");
         });
       });
     }
@@ -130,10 +131,10 @@ app.delete("/api/delete/:id", function (req, res) {
     } // Viimeisenä tilanne jossa kaikki ok
     else {
       console.log(results);
-      res.json("Deleted " + id + " " + results.title, 200);
+      res.redirect("/api/getall");
+      //res.json("Deleted " + id + " " + results.title, 200);
     }
   });
-  //res.send("Delete the  document with id" + req.params.id);
 });
 
 //app.listen(8081);
