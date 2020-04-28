@@ -42,20 +42,32 @@
           <% for (var i=0; i < taulu.length; i++){ %>
           <tr>
             <td>
-              <a
-                href="/api/update/<%= taulu[i]._id %>"
-                onclick="return confirm('Update it or not?')"
-                border="0"
-                ><img src="../edit.png" height="30%" width="30%"
-              /></a>
+              <form action="/api/update/<%= taulu[i]._id %>" method="post">
+                <input type="hidden" name="_method" value="PUT" />
+                <input
+                  type="image"
+                  height="19"
+                  width="19"
+                  src="../edit.png"
+                  border="0"
+                  name="UpdateImg"
+                  onclick="return confirm('Update it or not?')"
+                />
+              </form>
             </td>
             <td>
-              <a
-                href="/api/delete/<%= taulu[i]._id %>"
-                onclick="return confirm('Delte it or not?')"
-                border="0"
-                ><img src="../delete.png" height="30%" width="30%"
-              /></a>
+              <form action="/api/delete/<%= taulu[i]._id %>" method="post">
+                <input type="hidden" name="_method" value="DELETE" />
+                <input
+                  type="image"
+                  height="19"
+                  width="19"
+                  src="../delete.png"
+                  border="0"
+                  name="DelImg"
+                  onclick="return confirm('Delete it or not?')"
+                />
+              </form>
             </td>
             <td><%= taulu[i].bookname %></td>
             <td><%= taulu[i].author %></td>

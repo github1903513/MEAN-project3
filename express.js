@@ -105,7 +105,7 @@ app.put("/api/update/:id", function (req, res) {
         console.log(req.body);
         const updatebook = req.body;
         console.log(updatebook);
-        Booklist.findOneAndUpdate(id, updatebook, { new: true }, function (
+        Booklist.findByIdAndUpdate(id, updatebook, { new: true }, function (
           err,
           result
         ) {
