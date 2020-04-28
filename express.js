@@ -88,7 +88,7 @@ app.get("/api/add", function (req, res) {
 });
 
 // Update the docment with id
-app.put("/api/update/:id", function (req, res) {
+app.get("/api/update/:id", function (req, res) {
   //res.send("Muokataan leffaa id:llä: " + req.params.id);
   var id = req.params.id;
   //show the book info to update
@@ -101,7 +101,7 @@ app.put("/api/update/:id", function (req, res) {
       res.render("pages/updatebooklist", { taulu: results });
 
       //handle the update info
-      app.post("/api/update", function (req, res) {
+      app.put("/api/update/:id", function (req, res) {
         console.log(req.body);
         const updatebook = req.body;
         console.log(updatebook);

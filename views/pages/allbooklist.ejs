@@ -42,21 +42,18 @@
           <% for (var i=0; i < taulu.length; i++){ %>
           <tr>
             <td>
-              <form action="/api/update/<%= taulu[i]._id %>" method="post">
-                <input type="hidden" name="_method" value="PUT" />
-                <input
-                  type="image"
-                  height="19"
-                  width="19"
-                  src="../edit.png"
-                  border="0"
-                  name="UpdateImg"
-                  onclick="return confirm('Update it or not?')"
-                />
-              </form>
+              <a
+                href="/api/update/<%= taulu[i]._id %>"
+                onclick="return confirm('Update it or not?')"
+                border="0"
+                ><img src="../edit.png" height="30%" width="30%"
+              /></a>
             </td>
             <td>
-              <form action="/api/delete/<%= taulu[i]._id %>" method="post">
+              <form
+                action="/api/delete/<%= taulu[i]._id %>?_method=DELETE"
+                method="post"
+              >
                 <input type="hidden" name="_method" value="DELETE" />
                 <input
                   type="image"
