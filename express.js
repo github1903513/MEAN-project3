@@ -59,7 +59,8 @@ app.get("/api/get/:id", function (req, res) {
   //res.send("Update the  document with id" + req.params.id);
   Booklist.findById(id, function (err, results) {
     if (err) {
-      console.log(err);
+      //console.log(err);
+      res.json("Järjestelmässä tapahtui virhe", 500);
     } else {
       console.log(results);
       res.render("pages/detailbook", { taulu: results });
@@ -78,7 +79,8 @@ app.get("/api/add", function (req, res) {
     console.log(newbook);
     Booklist.create(newbook, function (err, result) {
       if (err) {
-        console.log(err);
+        //console.log(err);
+        res.json("Järjestelmässä tapahtui virhe", 404);
       } else {
         console.log("Tallennettu: " + result);
         res.redirect("/api/getall");
@@ -94,7 +96,9 @@ app.get("/api/update/:id", function (req, res) {
   //show the book info to update
   Booklist.findById(id, function (err, results) {
     if (err) {
-      console.log(err);
+      res.json("Järjestelmässä tapahtui virhe.", 500);
+    } else if (results == null) {
+      res.json("Poistetavaa ei löytynyt.", 200);
     } else {
       console.log(results);
       //redirct to the updatepage
@@ -109,10 +113,13 @@ app.get("/api/update/:id", function (req, res) {
           err,
           result
         ) {
-          if (err) console.log(err);
-          console.log("Update the book: " + result);
-          //res.send("Update the book to the lukudiplomilist" + result);
-          res.redirect("/api/getall");
+          if (err) {
+            console.log(err);
+            res.json("Järjestelmässä tapahtui virhe.", 500);
+          } else {
+            console.log("Update the book: " + result);
+            res.redirect("/api/getall");
+          }
         });
       });
     }
@@ -139,5 +146,5 @@ app.delete("/api/delete/:id", function (req, res) {
   });
 });
 
-//app.listen(8081);
-app.listen(PORT);
+app.listen(8081);
+//app.listen(PORT);

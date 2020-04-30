@@ -69,13 +69,16 @@
               name="picture"
               required
             />
-            Content:<input
-              type="text"
+            Content:
+            <textarea
               class="pure-input-1-2"
-              value=""
-              id="content"
               name="content"
-            />
+              id="content"
+              rows="10"
+              cols="30"
+            >
+                        <%= taulu.content %>
+            </textarea>
           </fieldset>
 
           <button
